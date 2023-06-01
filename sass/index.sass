@@ -1,0 +1,385 @@
+*
+    margin: 0
+    padding: 0
+    max-width: 100%
+    .container-fluid
+        width: 90%
+        margin: 0 auto
+
+    .text-8xl
+        font-size: clamp(48px, 6.7vw, 96px)
+        line-height: 1
+    .text-7xl
+        font-size: clamp(36px, 5vw, 72px)
+        line-height: 1
+    .text-6xl
+        font-size: clamp(30px, 4.2vw, 60px)
+        line-height: 1
+    .text-5xl
+        font-size: clamp(22px, 3.3vw, 48px)
+        line-height: 1
+    .text-4xl
+        font-size: clamp(20px, 2.5vw, 36px)
+        line-height: 2.5rem
+    .text-3xl
+        font-size: clamp(18px, 2vw, 30px)
+        line-height: 2.25rem
+        font-weight: 600
+    .text-2xl
+        font-size: clamp(16px, 1.7vw, 22px)
+        line-height: 2rem
+        font-weight: 400
+    .text-xl
+        font-size: clamp(16px, 1.4vw, 20px)
+        line-height: 1.75rem
+        font-weight: 400
+    .text-lg
+        font-size: clamp(16px, 1.25vw, 18px)
+        line-height: 1.75rem
+        font-weight: 400
+    .text-base
+        font-size: clamp(16px, 1vw, 16px)
+        line-height: 1.5rem
+        font-weight: 400
+    a
+        text-decoration: none
+        outline: none
+    ul
+        list-style: none
+    .fp-tableCell
+        display: block
+
+@mixin deskExtra()
+    @media ( max-width: 1920px )
+        @content
+@mixin deskBig()
+    @media ( max-width: 1440px )
+        @content
+@mixin desk()
+    @media ( max-width: 1200px )
+        @content
+@mixin deskMini()
+    @media ( max-width: 1024px )
+        @content
+@mixin padBig()
+    @media ( max-width: 991px )
+        @content
+@mixin pad()
+    @media ( max-width: 768px )
+        @content
+@mixin padMini()
+    @media ( max-width: 576px )
+        @content
+@mixin mobile()
+    @media ( max-width: 480px )
+        @content
+@mixin mobileMini()
+    @media ( max-width: 375px )
+        @content
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap')
+$color-dark: #16181a
+$color-bright: #f2f2f2
+$color-primary: #AB724E
+$color-gradient: linear-gradient(132deg, rgba(254, 245, 178, 0.5) 5%, rgba(219, 148, 214, 0.5) 35%, rgba(191, 206, 236, 0.5) 60%, rgba(230, 238, 207, 0.5) 100%)
+@keyframes imgMove
+    0%
+        transform: rotate(5deg)
+        opacity: 0
+    20%
+        transform: rotate(-5deg)
+        opacity: 0.5
+    100%
+        transform: rotate(0deg)
+        opacity: 1
+@keyframes animates 01
+    0%
+        opacity: 0
+        top: 35%
+        transform: scale(1.5,1.5)
+    10%
+        opacity: 0
+        top: 35%
+        transform: scale(1.5,1.5)
+    70%
+        opacity: 1
+        top: 35%
+        transform: scale(1.5,1.5)
+    100%
+        top: 129px
+        transform: scale(1,1)
+body
+    background-color: #fff
+    font-family: 'Noto Sans TC', sans-serif
+    position: relative
+    .nav
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 20
+        transition: all .1s ease-in-out
+        @include mobile
+            display: none
+        .navWrap
+            position: relative
+            display: flex
+            align-items: center
+            width: 90%
+            margin: 0 auto
+            .logo
+                width: 200px
+                a
+                    display: block
+                    width: 100%
+                    height: 100px
+                    background: url(../img/logo.png) center center /contain no-repeat
+                    // filter: brightness(1) invert(1) //key
+            .middleBox
+                margin: 0 0 0 auto
+                display: flex
+                flex-direction: row
+                .dropDown
+                    position: relative
+                    z-index: 5
+                    display: inline-block
+                    .name
+                        position: relative
+                        color: #fff
+                        display: block
+                        padding: 40px 20px
+                        font-weight: 500
+                        &::after
+                            content: ''
+                            position: absolute
+                            bottom: 25px
+                            left: 50%
+                            transform: translateX(-50%)
+                            display: block
+                            width: 0% //key
+                            height: 2px
+                            background-color: $color-primary
+                            transform-origin: center
+                            transition: all .5s ease-in-out
+                        &:hover
+                            &::after
+                                width: 70%
+                        @include pad
+                            padding: 40px 8px
+                    .current //key
+                        transform: translateX(-50%) translateY(0)
+                        opacity: 1
+    .main
+        position: relative
+        .kv
+            position: relative
+            background: url(../img/kv-pc.jpg)bottom center /cover no-repeat
+            .container-fluid
+                position: relative
+                .kv-banner
+                    position: relative
+                    padding: 600px 0
+                    @include deskExtra
+                        padding: 500px 0
+                    @include pad
+                        padding: 450px 0
+                    @include padMini
+                        padding: 350px 0
+                    @include mobile
+                        padding: 250px 0
+                    .kv-banner-top
+                        .title
+                            background: url(../img/kv-title.png) center center / contain no-repeat
+                            position: absolute
+                            top: 50%
+                            left: 10%
+                            transform: translateY(-60%)
+                            width: 30%
+                            height: 100%
+                            @include deskBig
+                                transform: translateY(-50%)
+                            @include padBig
+                                top: 25%
+                                left: 50%
+                                transform: translate(-50%, 0)
+                                width: 100%
+                                height: 25%
+                    .kv-banner-bottom
+                        position: absolute
+                        bottom: 0
+                        left: 0
+                        width: 100%
+                        height: 100%
+                        display: flex
+                        .subtitle
+                            background: url(../img/kv-subtitle.png)bottom center/ contain no-repeat
+                            position: relative
+                            width: 50%
+                            height: 100%
+                            @include deskBig
+                                position: absolute
+                                width: 60%
+                                left: 0
+                                bottom: 0
+                                z-index: 2
+                        .people
+                            background: url(../img/kv-peoplehand.png)bottom center/ contain no-repeat
+                            position: relative
+                            width: 50%
+                            height: 100%
+                            @include deskBig
+                                position: absolute
+                                width: 60%
+                                right: 0
+                                bottom: 0
+
+        .footer
+            position: relative
+            margin: 0 auto
+            display: flex
+            align-items: center
+            height: auto !important
+            .fp-tableCell
+                height: auto !important
+            .container
+                justify-content: space-around
+                margin: 72px auto
+                @include mobile
+                    padding: 0
+                    flex-direction: column
+                .wrap
+                    display: flex
+                    width: 50%
+                    @include mobile
+                        width: 100%
+                        margin: 20px auto
+                    &:nth-child(odd)
+                        justify-content: space-around
+                    .wrap-item
+                        display: flex
+                        flex-direction: column
+                        margin: 0 20px
+                        @include mobile
+                            margin: 0 auto
+                            width: 40%
+                        .wrap-item-s
+                            @include mobile
+                                display: flex
+                                justify-content: space-around
+    .m_menu
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 50
+        // display: block
+        display: none
+        width: 100%
+        background-color: $color-bright
+        @include mobile
+            display: block
+        .mask
+            position: fixed
+            top: 0
+            left: 0
+            z-index: 10
+            display: none //key
+            background-color: rgba(0, 0, 0, 0.6)
+            width: 100%
+            height: 100%
+            padding-bottom: 60px
+        .controlBox
+            position: relative
+            z-index: 99
+            display: flex
+            align-items: center
+            justify-content: space-around
+            @include mobile
+                padding: 5px 0px
+            .m_logo
+                width: 135px
+                padding: 5px 0
+                @include mobile
+                    width: 110px
+                a
+                    display: block
+                    width: 100%
+                    background: url(../img/logo.png)center center / contain no-repeat
+                    height: 55px
+            .rightBox
+                .searchWrap
+                    .searchBox
+            .hamburger
+                position: relative
+                width: 60px
+                height: 60px
+                span
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translateX(-50%)
+                    width: 26px
+                    height: 1px
+                    background-color: $color-primary
+                    transition: all .5s
+                    &::before, &::after
+                        content: ''
+                        position: absolute
+                        left: 0
+                        width: 100%
+                        height: 1px
+                        background-color: $color-primary
+                        transition: all .5s ease-in-out
+                    &::before
+                        top: -7px
+                    &::after
+                        bottom: -7px
+            .show
+                span
+                    background-color: transparent
+                    &::before
+                        top: 0
+                        transform: rotate(45deg)
+                    &::after
+                        bottom: 0
+                        transform: rotate(-45deg)
+        .hideBox
+            position: fixed
+            top: 0
+            left: 0
+            bottom: 0
+            z-index: 11
+            width: 100%
+            display: none //key
+            padding: 60px 0
+            overflow-y: auto
+            background-color: $color-dark
+            .nav
+                margin-top: 80px
+                display: block
+                .dropDown
+                    position: relative
+                    &:hover
+                        span
+                            a
+                                &::after
+                                    content: "" //key
+                                    display: block
+                                    width: 9px
+                                    height: 1px
+                                    background-color: #fff
+                                    right: 4rem
+                                    top: 50%
+                                    transform: translateY(-50%)
+                    span
+                        padding: 20px 0
+                        a
+                            position: relative
+                            display: block
+                            padding: 20px 0
+                            color: #fff
+                            text-align: center
+        .show
+            display: block
+    .bgMode
+        background: $color-dark
